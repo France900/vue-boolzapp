@@ -1,0 +1,106 @@
+/* IMPOSTZIONI GENEREALI */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: white;
+}
+
+#root {
+  position: relative;
+  background-color: #D7DBD6;
+  height: 100vh;
+  width: 100vw;
+}
+
+.strisciaVerde {
+  background-color: #009688;
+  height: 20vh;
+}
+
+.pannelloChat {
+  position: fixed;
+  left: 10vw;
+  top: 20px;
+  background-color: grey;
+  width: 80vw;
+  height: 90vh;
+  display: flex;
+}
+
+.leftSide {
+  width: calc(100%/3);
+  height: 100%;
+}
+.myProfile {
+  width: 100%;
+  height: 10%;
+  background-color: #EDEDED;;
+}
+/* ATTIVA NOTIFICHE DESKTOP */
+#notifichePopup{
+  color: black;
+  text-decoration: none;
+}
+.notifichePopup {
+  width: 100%;
+  height: 15%;
+  background-color: #9DE1FE;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.notifichePopup i {
+  font-size: 2em;
+  background-color: white;
+  border-radius: 50%;
+  padding: 9px 5px;
+  color: #9DE1FE;
+}
+
+/* fine ATTIVA NOTIFICHE DESKTOP */
+.searchBar{
+  width: 100%;
+  height: 10%;
+  background-color: #F6F6F6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.searchBar input {
+  padding: 5px;
+  border-radius: 20px;
+}
+.contactList {
+  width: 100%;
+  height: 65%;
+  background-color: white;
+}
+
+
+.rightSide {
+  width: calc(100%/3*2);
+  background-color: blue;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.contactProfile {
+  width: 100%;
+  height: 10%;
+  background-color: #EDEDED;
+}
+.chatScreen {
+  width: 100%;
+  height: 80%;
+  background-color: #E5DDD5;
+}
+.inputArea {
+  width: 100%;
+  height: 10%;
+  background-color: #F0F0F0;
+}
