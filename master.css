@@ -8,6 +8,7 @@
 
 body {
   color: white;
+  font-size: 1em;
 }
 
 #root {
@@ -26,7 +27,7 @@ body {
   position: fixed;
   left: 10vw;
   top: 20px;
-  background-color: grey;
+  /* background-color: grey; */
   width: 80vw;
   height: 90vh;
   display: flex;
@@ -36,11 +37,32 @@ body {
   width: calc(100%/3);
   height: 100%;
 }
+
+/* MY PROFILE OPTION */
 .myProfile {
   width: 100%;
   height: 10%;
-  background-color: #EDEDED;;
+  background-color: #EDEDED;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
+.profilePicture {
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+.profilePicture img {
+  height: 100%;
+  border-radius: 50%
+}
+.profileMenu i {
+  padding: 5px;
+  color: gray;
+}
+
 /* ATTIVA NOTIFICHE DESKTOP */
 #notifichePopup{
   color: black;
@@ -51,7 +73,7 @@ body {
   height: 15%;
   background-color: #9DE1FE;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 .notifichePopup i {
@@ -60,9 +82,18 @@ body {
   border-radius: 50%;
   padding: 9px 5px;
   color: #9DE1FE;
+  /* margin-right: 5px; */
 }
-
+.fontSize{
+  font-size: 0.8em;
+}
+.underGray {
+  text-decoration: underline;
+  color: gray;
+  font-size: 0.7;
+}
 /* fine ATTIVA NOTIFICHE DESKTOP */
+
 .searchBar{
   width: 100%;
   height: 10%;
@@ -72,19 +103,40 @@ body {
   align-items: center;
 }
 .searchBar input {
-  padding: 5px;
   border-radius: 20px;
+  width: 96%;
+  /* padding: 5px; */
+  height: 50%;
+  color: #929292;
+  /* background-image: url("./img/searchicon.webp");
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding-left: 40px; */
 }
+
+/* <!-- LISTA CONTATTI --> */
 .contactList {
   width: 100%;
   height: 65%;
   background-color: white;
+  color: black;
+  overflow-y: scroll;
+}
+.contatto {
+  display: flex;
+  align-items: center;
+}
+.contatto img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 20px 25px;
 }
 
 
 .rightSide {
   width: calc(100%/3*2);
-  background-color: blue;
+  /* background-color: blue; */
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -93,14 +145,39 @@ body {
   width: 100%;
   height: 10%;
   background-color: #EDEDED;
+  color: black;
+  display: flex;
+  align-items: center;
 }
+.contactProfile img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+/* <!--  LA CHAT --> */
 .chatScreen {
   width: 100%;
   height: 80%;
-  background-color: #E5DDD5;
+  background-image: url("./img/mine.jpg");
+  background-size: cover;
+  overflow-y: scroll;
 }
 .inputArea {
   width: 100%;
   height: 10%;
   background-color: #F0F0F0;
+  color: #919191;
+  font-size: 1.2em;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.inputArea input {
+  border-radius: 20px;
+  width: 80%;
+  padding: 0 10px;
+  height: 65%;
+  color: #929292;
+  font-size: 1em;
 }

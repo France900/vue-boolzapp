@@ -16,42 +16,64 @@
 
       <!-- pannello chat -->
       <div class="pannelloChat">
-
-        <!-- lista di contatti -->
         <div class="leftSide">
-          <div class="myProfile">
 
+          <!-- /* MY PROFILE OPTION */ -->
+          <div class="myProfile">
+            <div class="profilePicture">
+              <img src="./img/avatar_io.jpg" alt="">
+              <p>Nome Utente</p>
+            </div>
+            <div class="profileMenu">
+              <i class="fas fa-circle-notch"></i>
+              <i class="fas fa-comment-dots"></i>
+              <i class="fas fa-ellipsis-v"></i>
+            </div>
           </div>
+
+          <!-- /* ATTIVA NOTIFICHE DESKTOP */ -->
           <a href="#" id="notifichePopup">
             <div class="notifichePopup">
               <div class="">
                 <i class="far fa-bell-slash"></i>
               </div>
-              <div class="">
-                <p><b>Ricevi notifiche di nuovi messaggi</b></p>
-                <p>Attiva notifiche desktop</p>
+              <div class="fontSize">
+                <p>Ricevi notifiche di nuovi messaggi</p>
+                <p class="underGray">Attiva notifiche desktop</p>
               </div>
             </div>
           </a>
-          <div class="searchBar">
-            <input type="text" name="" value="" placeholder="Cerca o inizia una nuova chat">
-          </div>
-          <div class="contactList">
 
+          <div class="searchBar">
+            <input type="text" name="" value="" placeholder="  Cerca o inizia una nuova chat">
+          </div>
+
+          <!-- LISTA CONTATTI -->
+          <div class="contactList">
+            <div class="contatto" v-for="(cosa, i) in contacts" @click="showProfile">
+              <img :src="'./img/avatar' + cosa.avatar + '.jpg'" alt="">
+              <p>{{cosa.name}}</p>
+            </div>
           </div>
         </div>
 
-        <!-- ccontatto selezionato -->
         <div class="rightSide">
-          <!--  -->
+          <!-- info contatto selezionato -->
           <div class="contactProfile">
-
+            <img :src="'./img/avatar'+contacts[0].avatar+'.jpg'" alt="">
+            <span>{{contacts[0].name}}</span>
           </div>
+
+          <!--  LA CHAT -->
           <div class="chatScreen">
-
+            
           </div>
-          <div class="inputArea">
 
+          <div class="inputArea">
+            <i class="far fa-grin-hearts"></i>
+            <i class="fas fa-paperclip"></i>
+            <input type="text" placeholder="Scrivi un messaggio">
+            <i class="fas fa-microphone-alt"></i>
           </div>
         </div>
 
