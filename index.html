@@ -44,15 +44,23 @@
             </div>
           </a>
 
+          <!-- RICHERCA CONTATTI -->
           <div class="searchBar">
-            <input type="text" name="" value="" placeholder="  Cerca o inizia una nuova chat">
+            <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchInput">
+            <!-- @keyup="searchContact" -->
           </div>
 
           <!-- LISTA CONTATTI -->
           <div class="contactList">
-            <div class="contatto" v-for="(cosa, i) in contacts" @click="showProfile">
-              <img :src="'./img/avatar' + cosa.avatar + '.jpg'" alt="">
-              <p>{{cosa.name}}</p>
+            <div v-for="(persona, i) in contacts"
+            v-if="persona.name.toLowerCase().includes(searchInput.toLowerCase())"
+            >
+              <a href="#" class="contatto" @click="scegliPersona(i)">
+                <img :src="'./img/avatar' + persona.avatar + '.jpg'" alt="">
+                <p>{{persona.name}}</p>
+                <p>{{persona.messages[persona.messages.length - 1].text}}</p>
+                <p>{{persona.messages[persona.messages.length - 1].date}}</p>
+              </a>
             </div>
           </div>
         </div>
@@ -60,19 +68,33 @@
         <div class="rightSide">
           <!-- info contatto selezionato -->
           <div class="contactProfile">
-            <img :src="'./img/avatar'+contacts[0].avatar+'.jpg'" alt="">
-            <span>{{contacts[0].name}}</span>
+            <div class="flexy">
+              <img :src="'./img/avatar'+contacts[index].avatar+'.jpg'" alt="">
+              <span>{{contacts[index].name}}</span>
+            </div>
+            <div class="flexy">
+              <!-- <img src="./img/searchicon.png" alt=""> -->
+              <i class="fas fa-search"></i>
+              <i class="fas fa-ellipsis-v"></i>
+            </div>
           </div>
 
-          <!--  LA CHAT -->
+          <!--  COME METTERE I MESSAGGI DI OGNI CONTATTO -->
           <div class="chatScreen">
-            
+            <div class="" v-for="(messaggio, i) in contacts[index].messages" >
+              <div :class="(contacts[index].messages[i].status == 'received') ? 'messageReceived' : 'messageSent'">
+                <p v-if="(contacts[index].messages[i].status == 'received') ? 'messageReceived p' : 'messageSent p'">
+                  {{contacts[index].messages[i].text}} <br>
+                  <span class="data">{{contacts[index].messages[i].date}}</span>
+                </p>
+              </div>
+            </div>
           </div>
 
           <div class="inputArea">
             <i class="far fa-grin-hearts"></i>
             <i class="fas fa-paperclip"></i>
-            <input type="text" placeholder="Scrivi un messaggio">
+            <input type="text" placeholder="Scrivi un messaggio" @keyup.enter="sendMessage" v-model="messageImput">
             <i class="fas fa-microphone-alt"></i>
           </div>
         </div>
@@ -81,6 +103,7 @@
 
 
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.10.4/dayjs.min.js" integrity="sha512-0fcCRl828lBlrSCa8QJY51mtNqTcHxabaXVLPgw/jPA5Nutujh6CbTdDgRzl9aSPYW/uuE7c4SffFUQFBAy6lg==" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
     <script src="dati.js"></script>
     <script src="main.js"></script>

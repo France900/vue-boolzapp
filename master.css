@@ -7,8 +7,12 @@
 }
 
 body {
-  color: white;
+  /* color: white; */
   font-size: 1em;
+}
+
+.contactList::-webkit-scrollbar-track {
+  background: orange;        /* color of the tracking area */
 }
 
 #root {
@@ -52,7 +56,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: black;
+  /* color: black; */
 }
 .profilePicture img {
   height: 100%;
@@ -94,6 +98,7 @@ body {
 }
 /* fine ATTIVA NOTIFICHE DESKTOP */
 
+/* <!-- RICHERCA CONTATTI --> */
 .searchBar{
   width: 100%;
   height: 10%;
@@ -105,10 +110,11 @@ body {
 .searchBar input {
   border-radius: 20px;
   width: 96%;
-  /* padding: 5px; */
+  padding: 0 10px;
   height: 50%;
-  color: #929292;
-  /* background-image: url("./img/searchicon.webp");
+  /* color: #929292; */
+  /* background-color: black; */
+  /* background-image: url('./img/searchicon.png');
   background-position: 10px 10px;
   background-repeat: no-repeat;
   padding-left: 40px; */
@@ -119,12 +125,17 @@ body {
   width: 100%;
   height: 65%;
   background-color: white;
-  color: black;
+  /* color: black; */
   overflow-y: scroll;
 }
 .contatto {
   display: flex;
   align-items: center;
+  text-decoration: none;
+  color: black;
+}
+.contatto:hover {
+  background-color: gray;
 }
 .contatto img{
   width: 50px;
@@ -145,14 +156,25 @@ body {
   width: 100%;
   height: 10%;
   background-color: #EDEDED;
-  color: black;
+  /* color: black; */
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 .contactProfile img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
+}
+.flexy {
+  display: flex;
+  align-items: center;
+  margin: 0 25px;
+}
+.flexy i {
+  padding: 5px;
+  color: gray;
+  margin: 0 10px;
 }
 
 /* <!--  LA CHAT --> */
@@ -162,6 +184,31 @@ body {
   background-image: url("./img/mine.jpg");
   background-size: cover;
   overflow-y: scroll;
+}
+.messageSent {
+  display: flex;
+  justify-content: flex-end;
+  /* justify-content: space-around; */
+}
+.messageSent p {
+  background-color: #DCF8C6;
+  padding: 5px 7px;
+  border-radius: 6px;
+  margin: 20px;
+}
+.messageReceived {
+  display: flex;
+  /* justify-content: space-around; */
+}
+.messageReceived p {
+  background-color: #FFFFFF;
+  padding: 5px 7px;
+  border-radius: 6px;
+  margin: 20px;
+}
+.data {
+  color: #929292;
+  font-size: 0.7em;
 }
 .inputArea {
   width: 100%;
@@ -178,6 +225,6 @@ body {
   width: 80%;
   padding: 0 10px;
   height: 65%;
-  color: #929292;
+  /* color: #929292; */
   font-size: 1em;
 }

@@ -1,3 +1,15 @@
+// scroll per cancellare i messaggii
+// fare css per la dada dopo l'ultimo messaggio con data e ora
+// copiare funzione di emmanuele per la ricerca
+// searching: function (key, val) {
+//             if (val)
+//                 return key.includes(val);
+//             else
+//                 return true;
+//         }
+// sostituire input text nei messaggi con textarea(occhio esplode il css)
+
+
 var app = new Vue(
   {
     el: "#root",
@@ -86,13 +98,145 @@ var app = new Vue(
       			}
       		],
       	},
-      ]
+        {
+      		name: 'Giuseppe',
+      		avatar: '_5',
+      		visible: true,
+      		messages: [
+      			{
+      				date: '28/03/2020 10:10:40',
+      				text: 'La Marianna va in campagna',
+      				status: 'received'
+      			},
+      			{
+      				date: '28/03/2020 10:20:10',
+      				text: 'Sicuro di non aver sbagliato chat?',
+      				status: 'sent'
+      			},
+      			{
+      				date: '28/03/2020 16:15:22',
+      				text: 'Ah scusa!',
+      				status: 'received'
+      			}
+      		],
+      	},
+        {
+      		name: 'Betty',
+      		avatar: '_6',
+      		visible: true,
+      		messages: [
+      			{
+      				date: '28/03/2020 10:10:40',
+      				text: 'La Marianna va in campagna',
+      				status: 'received'
+      			},
+      			{
+      				date: '28/03/2020 10:20:10',
+      				text: 'Sicuro di non aver sbagliato chat?',
+      				status: 'sent'
+      			},
+      			{
+      				date: '28/03/2020 16:15:22',
+      				text: 'Ah scusa!',
+      				status: 'received'
+      			}
+      		],
+      	},
+        {
+      		name: 'Mattia',
+      		avatar: '_7',
+      		visible: true,
+      		messages: [
+      			{
+      				date: '28/03/2020 10:10:40',
+      				text: 'La Marianna va in campagna',
+      				status: 'received'
+      			},
+      			{
+      				date: '28/03/2020 10:20:10',
+      				text: 'Sicuro di non aver sbagliato chat?',
+      				status: 'sent'
+      			},
+      			{
+      				date: '28/03/2020 16:15:22',
+      				text: 'Ah scusa!',
+      				status: 'received'
+      			}
+      		],
+      	},
+        {
+      		name: 'Niccolò',
+      		avatar: '_8',
+      		visible: true,
+      		messages: [
+      			{
+      				date: '28/03/2020 10:10:40',
+      				text: 'La Marianna va in campagna',
+      				status: 'received'
+      			},
+      			{
+      				date: '28/03/2020 10:20:10',
+      				text: 'Sicuro di non aver sbagliato chat?',
+      				status: 'sent'
+      			},
+      			{
+      				date: '28/03/2020 16:15:22',
+      				text: 'Ah scusa!',
+      				status: 'received'
+      			}
+      		],
+      	},
+      ],
+      index: 0,
+      messageImput: "",
+      searchInput: "",
+      // indexInput: 0,
     },
     methods: {
-      showProfile: function () {
-        // let avatar = this.contacts.avatar
-        // return './img/avatar' + avatar + '.jpg'
-      }
+      scegliPersona: function (indice) {
+         this.index = indice
+      },
+      sendMessage: function () {
+        // let data = new Date()
+        // let sentYear = data.getFullYear();
+        // let sentHowrsv = data.getHowrs();
+        // let sentMinutes = data.getMinutes();
+        // let dataTot = `${sentYear} ${sentHowrsv}:${sentMinutes}`
+        let objSent = {
+          date: dayjs().format("DD/MM/YYYY HH:MM"),
+          text: this.messageImput,
+          status: 'sent'
+        }
+        this.contacts[this.index].messages.push(objSent)
+        this.messageImput = ""
+
+        let objRecivied = {
+          date: dayjs().format("DD/MM/YYYY HH:MM"),
+          text: "Ok!",
+          status: 'received'
+        }
+        setTimeout(() => {
+          this.contacts[this.index].messages.push(objRecivied)
+        }, 1000);
+      },
+
+      // // o questa funzione o il v-for con lowercase
+      // searchContact: function () {
+      //   // console.log("success");
+      //   // va usato map!
+      //   if (this.contacts[this.indexInput].name.includes(this.searchImput)) {
+      //     this.contacts[this.indexInput].visible = false
+      //   }
+      //   console.log(this.contacts);
+      //   console.log(this.contacts[this.indexInput]);
+      //   console.log(this.contacts[this.indexInput].name);
+      //   console.log(this.contacts[this.indexInput].name.includes(this.searchImput));
+      //   console.log();
+      //
+      //   // .includes(this.searchImput)
+      //   // this.contacts    visible = false
+      //   // this.searchImput = ""
+      // },
     },
   }
 );
